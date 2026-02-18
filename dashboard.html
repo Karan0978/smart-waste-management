@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Waste Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#f2f2f2;
+    }
+    header{
+      background:#1b5e20;
+      color:white;
+      padding:15px;
+      text-align:center;
+    }
+    .card{
+      background:white;
+      margin:15px;
+      padding:15px;
+      border-radius:8px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+    button{
+      width:100%;
+      padding:10px;
+      margin-top:8px;
+      border:none;
+      border-radius:5px;
+      background:#2e7d32;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+    select{
+      width:100%;
+      padding:8px;
+      margin-top:5px;
+    }
+    .hide{
+      display:none;
+    }
+    footer{
+      text-align:center;
+      padding:10px;
+      background:#ddd;
+    }
+  </style>
+  <button onclick="logout()" style="margin:10px;">Logout</button>
+
+<script>
+function logout(){
+  window.location.href = "index.html";
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+  <h2>♻ Smart Waste Management System</h2>
+  <p>College Project Demo</p>
+</header>
+
+<div class="card">
+  <h3>Select Role</h3>
+  <select onchange="changeRole(this.value)">
+    <option value="user">User</option>
+    <option value="driver">Driver</option>
+    <option value="center">Recycling Center</option>
+  </select>
+</div>
+
+<div id="user" class="card">
+  <h3>User Dashboard</h3>
+  <button>Add Waste</button>
+  <button>Request Pickup</button>
+  <button>Track Status</button>
+</div>
+
+<div id="driver" class="card hide">
+  <h3>Driver Dashboard</h3>
+  <button>View Pickups</button>
+  <button>Mark Collected</button>
+</div>
+
+<div id="center" class="card hide">
+  <h3>Recycling Center</h3>
+  <button>Incoming Waste</button>
+  <button>Update Status</button>
+</div>
+
+<div class="card">
+  <h3>About Project</h3>
+  <p>
+    This system automates waste collection and recycling using
+    a role-based web application. Users request pickups, drivers
+    collect waste, and recycling centers process waste efficiently.
+  </p>
+</div>
+
+<footer>
+  <p>Developed by Karan Kumar</p>
+</footer>
+
+<script>
+  function changeRole(role){
+    document.getElementById("user").classList.add("hide");
+    document.getElementById("driver").classList.add("hide");
+    document.getElementById("center").classList.add("hide");
+
+    document.getElementById(role).classList.remove("hide");
+  }
+</script>
+
+</body>
+</html>
